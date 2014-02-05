@@ -1,0 +1,17 @@
+#$Id$
+#{{ ansible_managed }}
+
+Port 22
+ListenAddress {{ ansible_ssh_host }}
+
+LoginGraceTime 120
+PermitRootLogin no
+
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+UsePAM yes
+Subsystem sftp /usr/libexec/sftp-server

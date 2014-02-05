@@ -1,0 +1,16 @@
+- hosts: all
+  user: ansible
+  sudo: true
+
+  tasks:
+  - name: install apt_repository Ansible module dependencies
+    apt: pkg={{ item }}
+    with_items: [python-pycurl, python-apt]
+  - name: add Rackspace Cloud Monitoring code signing key
+    apt_key: url=https://monitoring.api.rackspacecloud.com/pki/agent/linux.asc state=present
+  - name: add Rackspace Cloud Monitoring repository
+    apt_repository: repo='deb http://stable.packages.cloudmonitoring.rackspace.com/debian-wheezy-x86_64 cloudmonitoring main' state=present
+  - name: update apt package lists
+    apt: update_cache=yes
+  - name: install Rackspace Cloud Monitoring agent
+    apt: pkg={{ rackspace-monitoring-agent }}
