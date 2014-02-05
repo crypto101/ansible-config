@@ -10,30 +10,30 @@
     new_users: [lvh, ansible]
 
   tasks:
-  - name: create users
-    user: name={{ item }}
-      generate_ssh_key=yes
-      ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
-    with_items: new_users
+    - name: create users
+      user: name={{ item }}
+        generate_ssh_key=yes
+        ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
+      with_items: new_users
 
-  - name: fetch new pubkeys
-    fetch:
-      src=~/{{ item }}/.ssh/id_ecdsa.pub
-      dest=./keys
-    with_items: new_users
+    - name: fetch new pubkeys
+      fetch:
+        src=~/{{ item }}/.ssh/id_ecdsa.pub
+        dest=./keys
+      with_items: new_users
 
-  - name: update sshd_config
-    template: src=./sshd_config.j2
-      dest=/etc/ssh/sshd_config
-      backup=yes
-      owner=0 group=0 mode=0644
-      validate='/usr/sbin/sshd -T -f %s'
-    notify:
-      - restart sshd
+    - name: update sshd_config
+      template: src=./sshd_config.j2
+        dest=/etc/ssh/sshd_config
+        backup=yes
+        owner=0 group=0 mode=0644
+        validate='/usr/sbin/sshd -T -f %s'
+      notify:
+        - restart sshd
 
-  - name: disable root password
-    shell: passwd --lock
+    - name: disable root password
+      shell: passwd --lock
 
-handlers:
+- handlers:
   - name: restart sshd
     service: name=sshd state=restarted
