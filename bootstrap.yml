@@ -4,7 +4,7 @@
 # keys (copied locally to ./keys), and sudo access. sshd will be
 # configured to only accept key logins.
 
-- hosts: [162.242.229.176] #hosts: [rejewski.crypto101.org]
+- hosts: web
   user: root
   vars:
     new_users: [lvh, ansible]
