@@ -34,6 +34,6 @@
     - name: disable root password
       shell: passwd --lock
 
-- handlers:
-  - name: restart sshd
-    service: name=sshd state=restarted
+  handlers:
+    - name: restart sshd
+      service: name=sshd state=restarted
