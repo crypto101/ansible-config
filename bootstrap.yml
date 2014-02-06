@@ -38,5 +38,5 @@
       command: passwd --lock root
 
   handlers:
-      service: name=sshd state=restarted
     - name: Restart ssh daemon
+      service: name=sshd state=restarted enabled=yes
