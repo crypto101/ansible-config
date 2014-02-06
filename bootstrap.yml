@@ -4,7 +4,7 @@
 # keys (copied locally to ./keys), and sudo access. sshd will be
 # configured to only accept key logins.
 
-- hosts: web
+- hosts: IAD
   user: root
   vars:
     new_users: [lvh, ansible]
