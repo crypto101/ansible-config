@@ -20,7 +20,8 @@
     - name: fetch new pubkeys
       fetch:
         src=/home/{{ item }}/.ssh/id_ecdsa.pub
-        dest=./keys
+        dest=./local/ssh_keys/{{ item }}-{{ ansible_ssh_host }}-ecdsa.pub
+        flat=yes
         fail_on_missing=yes
       with_items: new_users
 
