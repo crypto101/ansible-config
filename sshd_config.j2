@@ -17,6 +17,7 @@ StrictModes yes
 PasswordAuthentication no
 ChallengeResponseAuthentication no
 PubkeyAuthentication yes
+AuthorizedKeysFile %h/.ssh/authorized_keys
 UsePAM yes
 
 Subsystem sftp /usr/lib/openssh/sftp-server
