@@ -33,7 +33,7 @@
         owner=0 group=0 mode=0644
         validate="/usr/sbin/sshd -T -f %s"
       notify:
-        - restart sshd
+        - restart ssh
 
     - name: Disable root password
       command: passwd --lock root
