@@ -17,7 +17,7 @@
         ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
       with_items: new_users
 
-    - name: fetch new pubkeys
+    - name: Fetch new pubkeys
       fetch:
         src=/home/{{ item }}/.ssh/id_ecdsa.pub
         dest=./local/ssh_keys/{{ item }}-{{ ansible_ssh_host }}-ecdsa.pub
@@ -38,5 +38,5 @@
       command: passwd --lock root
 
   handlers:
-    - name: restart sshd
       service: name=sshd state=restarted
+    - name: Restart ssh daemon
