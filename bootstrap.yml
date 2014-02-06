@@ -18,6 +18,14 @@
         ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
       with_items: new_users
 
+    - name: Fetch new privkeys
+      fetch:
+        src=/home/{{ item }}/.ssh/id_ecdsa
+        dest=./local/ssh_keys/{{ item }}-{{ ansible_ssh_host }}-ecdsa
+        flat=yes
+        fail_on_missing=yes
+      with_items: new_users
+
     - name: Fetch new pubkeys
       fetch:
         src=/home/{{ item }}/.ssh/id_ecdsa.pub
