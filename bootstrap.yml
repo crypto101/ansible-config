@@ -11,7 +11,8 @@
 
   tasks:
     - name: Create users
-      user: name={{ item }}
+      user:
+        name={{ item }}
         generate_ssh_key=yes
         ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
       with_items: new_users
