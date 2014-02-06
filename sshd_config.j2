@@ -11,6 +11,9 @@ HostKey /etc/ssh/ssh_host_rsa_key
 HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 
+UsePrivilegeSeparation yes
+StrictModes yes
+
 PasswordAuthentication no
 ChallengeResponseAuthentication no
 UsePAM yes
