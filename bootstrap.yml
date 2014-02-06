@@ -13,6 +13,7 @@
     - name: Create users
       user:
         name={{ item }}
+        groups=admin append=yes
         generate_ssh_key=yes
         ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
       with_items: new_users
