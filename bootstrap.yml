@@ -21,6 +21,7 @@
       fetch:
         src=/home/{{ item }}/.ssh/id_ecdsa.pub
         dest=./keys
+        fail_on_missing=yes
       with_items: new_users
 
     - name: Update sshd_config
