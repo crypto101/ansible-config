@@ -19,7 +19,7 @@
 
     - name: fetch new pubkeys
       fetch:
-        src=~/{{ item }}/.ssh/id_ecdsa.pub
+        src=/home/{{ item }}/.ssh/id_ecdsa.pub
         dest=./keys
       with_items: new_users
 
