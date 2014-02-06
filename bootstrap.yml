@@ -13,7 +13,7 @@
     - name: Create users
       user:
         name={{ item }}
-        groups=admin append=yes
+        groups=sudo append=yes
         generate_ssh_key=yes
         ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
       with_items: new_users
@@ -25,13 +25,6 @@
         flat=yes
         fail_on_missing=yes
       with_items: new_users
-
-    - name: Configure sudo
-      template:
-        src=sudoers-admin-group.j2
-        dest=/etc/sudoers.d/admin-group
-        owner=0 group=0 mode=0440
-        validate="visudo -c %s"
 
     - name: Update sshd_config
       template: src=./sshd_config.j2
