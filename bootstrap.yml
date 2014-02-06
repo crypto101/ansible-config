@@ -46,4 +46,4 @@
 
   handlers:
     - name: Restart ssh daemon
-      service: name=sshd state=restarted enabled=yes
+      service: name=ssh state=restarted enabled=yes
