@@ -10,7 +10,7 @@
     new_users: [lvh, ansible]
 
   tasks:
-    - name: create users
+    - name: Create users
       user: name={{ item }}
         generate_ssh_key=yes
         ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
@@ -22,7 +22,7 @@
         dest=./keys
       with_items: new_users
 
-    - name: update sshd_config
+    - name: Update sshd_config
       template: src=./sshd_config.j2
         dest=/etc/ssh/sshd_config
         backup=yes
@@ -31,8 +31,8 @@
       notify:
         - restart sshd
 
-    - name: disable root password
       shell: passwd --lock
+    - name: Disable root password
 
   handlers:
     - name: restart sshd
