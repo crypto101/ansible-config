@@ -1,0 +1,12 @@
+# Updates and upgrades the software on the machine.
+
+- hosts: IAD
+  user: ansible
+  sudo: yes
+
+  tasks:
+    - name: Update and safe-upgrade
+      apt:
+        update_cache=yes
+        cache_valid_time=180 # three minutes
+        upgrade=safe
