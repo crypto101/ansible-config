@@ -19,10 +19,13 @@
       repo='deb http://stable.packages.cloudmonitoring.rackspace.com/debian-wheezy-x86_64 cloudmonitoring main'
       state=present
 
-  - name: update apt package lists
-    apt:
-      update_cache=yes
-
   - name: install Rackspace Cloud Monitoring agent
     apt:
-      pkg={{ rackspace-monitoring-agent }}
+      update_cache=yes
+      pkg=rackspace-monitoring-agent
+
+  - name: start and enable the Rackspace Cloud Monitoring agent
+      service:
+        name=rackspace-monitoring-agent
+        state=started
+        enabled=yes
