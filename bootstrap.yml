@@ -38,6 +38,12 @@
       shell: cp /home/{{ item }}/.ssh/id_ecdsa.pub /home/{{ item }}/.ssh/authorized_keys
       with_items: new_users
 
+    - name: Give new users sudo powers without password auth
+      copy:
+        src=sudo-grp-nopasswd
+        dest=/etc/sudoers.d/sudo-grp-nopasswd
+        validate="visudo -cqf %s"
+
     - name: Update sshd_config
       template: src=./sshd_config.j2
         dest=/etc/ssh/sshd_config
