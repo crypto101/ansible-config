@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# Runs a given playbook with some settings that you probably intended for Crypto 101.
+export RAX_CREDS_FILE=local/pyrax-credentials
+ansible-playbook --verbose --verbose \
+                 --inventory-file=inventory \
+                 --private-key=local/ssh-keys/ansible-162.242.229.176-ecdsa \
+                 $1
