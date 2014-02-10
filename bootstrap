@@ -1,0 +1,2 @@
+#/usr/bin/env sh
+RAX_CREDS_FILE=local/pyrax-credentials ansible-playbook -i inventory -k bootstrap.yml
