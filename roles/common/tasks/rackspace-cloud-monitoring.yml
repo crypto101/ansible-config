@@ -1,13 +1,13 @@
+- name: Add Rackspace Cloud Monitoring code signing key
+  apt_key:
+    url=https://monitoring.api.rackspacecloud.com/pki/agent/linux.asc
+    state=present
+
 - name: Install apt_repository Ansible module dependencies
   apt:
     pkg={{ item }}
   with_items:
     [python-pycurl, python-apt]
-
-- name: Add Rackspace Cloud Monitoring code signing key
-  apt_key:
-    url=https://monitoring.api.rackspacecloud.com/pki/agent/linux.asc
-    state=present
 
 - name: Add Rackspace Cloud Monitoring repository
   apt_repository:
