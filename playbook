@@ -3,5 +3,4 @@
 export RAX_CREDS_FILE=local/pyrax-credentials
 ansible-playbook --verbose --verbose \
                  --inventory-file=inventory \
-                 --private-key=local/ssh-keys/ansible-162.242.229.176-ecdsa \
                  $1
