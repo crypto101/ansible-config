@@ -43,19 +43,3 @@ file in ``./local/pyrax-credentials`` that looks somewhat like::
 
 .. _Rackspace: https://www.rackspace.com/
 .. _pyrax: https://github.com/rackspace/pyrax
-
-Playbooks
-=========
-
-bootstrap.yml
--------------
-
-bootstrap.yml is for getting from a fresh Debian image to something
-you can use with other playbooks.
-
-rackspace-cloud-monitoring.yml
-------------------------------
-
-Installs `Rackspace Cloud Monitoring`_ on a box.
-
-.. _`Rackspace Cloud Monitoring`: http://www.rackspace.com/cloud/monitoring/

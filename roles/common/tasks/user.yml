@@ -1,0 +1,34 @@
+- name: Create ansible user
+  user:
+    name=ansible
+    groups=sudo append=yes
+
+- name: Upgrade OpenSSH to 6.5
+  apt:
+    update_cache=yes
+    cache_valid_time=300
+    default_release=jessie
+    package=openssh-server=1:6.5p1-4
+
+- name: Update sshd_config
+  template:
+    src=sshd_config.j2
+    dest=/etc/ssh/sshd_config
+    backup=yes
+    owner=0 group=0 mode=0644
+    validate="/usr/sbin/sshd -T -f %s"
+  notify:
+    - Restart sshd
+
+- name: Set up authorized_keys for the ansible user
+  authorized_key:
+    user=ansible
+    key="{{ lookup('file', item) }}"
+  with_fileglob:
+    - pubkeys/*
+
+- name: Empower sudo group without password auth
+  copy:
+    src=sudo-grp-nopasswd
+    dest=/etc/sudoers.d/sudo-grp-nopasswd
+    validate="visudo -cqf %s"

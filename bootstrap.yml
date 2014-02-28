@@ -6,56 +6,9 @@
 
 - hosts: IAD
   user: root
-  vars:
-    new_users: [lvh, ansible]
+  roles:
+    - common
 
   tasks:
-    - name: Create users
-      user:
-        name={{ item }}
-        groups=sudo append=yes
-        generate_ssh_key=yes
-        ssh_key_type=ecdsa ssh_key_bits=521 # Not a typo, I mean 521.
-      with_items: new_users
-
-    - name: Fetch new privkeys
-      fetch:
-        src=/home/{{ item }}/.ssh/id_ecdsa
-        dest=./local/ssh-keys/{{ item }}-{{ ansible_ssh_host }}-ecdsa
-        flat=yes
-        fail_on_missing=yes
-      with_items: new_users
-
-    - name: Fetch new pubkeys
-      fetch:
-        src=/home/{{ item }}/.ssh/id_ecdsa.pub
-        dest=./local/ssh-keys/{{ item }}-{{ ansible_ssh_host }}-ecdsa.pub
-        flat=yes
-        fail_on_missing=yes
-      with_items: new_users
-
-    - name: Set new pubkeys as authorized
-      shell: cp /home/{{ item }}/.ssh/id_ecdsa.pub /home/{{ item }}/.ssh/authorized_keys
-      with_items: new_users
-
-    - name: Give new users sudo powers without password auth
-      copy:
-        src=sudo-grp-nopasswd
-        dest=/etc/sudoers.d/sudo-grp-nopasswd
-        validate="visudo -cqf %s"
-
-    - name: Update sshd_config
-      template: src=./sshd_config.j2
-        dest=/etc/ssh/sshd_config
-        backup=yes
-        owner=0 group=0 mode=0644
-        validate="/usr/sbin/sshd -T -f %s"
-      notify:
-        - Restart ssh daemon
-
     - name: Disable root password
       command: passwd --lock root
-
-  handlers:
-    - name: Restart ssh daemon
-      service: name=ssh state=restarted enabled=yes

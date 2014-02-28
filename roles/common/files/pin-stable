@@ -1,7 +1,7 @@
 Package: *
-Pin: release a=stable
+Pin: release a=squeeze
 Pin-Priority: 700
 
 Package: *
-Pin: release a=testing
+Pin: release a=jessie
 Pin-Priority: 650

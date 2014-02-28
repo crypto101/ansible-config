@@ -1,2 +1,3 @@
 - include: apt.yml
 - include: rackspace-cloud-monitoring.yml
+- include: user.yml

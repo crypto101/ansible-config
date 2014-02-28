@@ -1,14 +1,11 @@
-deb http://mirror.rackspace.com/debian/ stable main
-deb-src http://mirror.rackspace.com/debian/ stable main
+deb http://mirror.rackspace.com/debian/ squeeze main
+deb-src http://mirror.rackspace.com/debian/ squeeze main
 
-deb http://mirror.rackspace.com/debian-security/ stable/updates main
-deb-src http://mirror.rackspace.com/debian-security/ stable/updates main
+deb http://mirror.rackspace.com/debian-security/ squeeze/updates main
+deb-src http://mirror.rackspace.com/debian-security/ squeeze/updates main
 
-deb http://mirror.rackspace.com/debian/ stable-backports main
-deb-src http://mirror.rackspace.com/debian/ stable-backports main
+deb http://mirror.rackspace.com/debian/ jessie main
+deb-src http://mirror.rackspace.com/debian/ jessie main
 
-deb http://mirror.rackspace.com/debian/ testing main
-deb-src http://mirror.rackspace.com/debian/ testing main
-
-deb http://mirror.rackspace.com/debian-security/ testing/updates main
-deb-src http://mirror.rackspace.com/debian-security/ testing/updates main
+deb http://mirror.rackspace.com/debian-security/ jessie/updates main
+deb-src http://mirror.rackspace.com/debian-security/ jessie/updates main

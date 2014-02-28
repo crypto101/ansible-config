@@ -1,0 +1,5 @@
+- name: Install docker
+  apt:
+    update_cache=yes
+    cache_valid_time=300
+    pkg=docker.io
