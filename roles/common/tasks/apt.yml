@@ -11,5 +11,5 @@
 - name: Update and upgrade
   apt:
     update_cache=yes
-    cache_valid_time=180
+    cache_valid_time=300
     upgrade=safe
