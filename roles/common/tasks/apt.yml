@@ -1,0 +1,15 @@
+- name: Configure sources
+  copy:
+    src=sources.list
+    dest=/etc/apt/sources.list
+
+- name: Configure pinning
+  copy:
+    src=pin-stable
+    dest=/etc/apt/preferences.d/pin-stable
+
+- name: Update and upgrade
+  apt:
+    update_cache=yes
+    cache_valid_time=180
+    upgrade=safe
