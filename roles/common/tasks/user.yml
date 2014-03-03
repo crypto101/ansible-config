@@ -1,7 +1,10 @@
-- name: Create ansible user
+- name: Create users
   user:
-    name=ansible
+    name={{ item }}
     groups=sudo append=yes
+  with_items:
+    - ansible
+    - lvh
 
 - name: Upgrade OpenSSH to 6.5
   apt:
@@ -26,6 +29,13 @@
     key="{{ lookup('file', item) }}"
   with_fileglob:
     - pubkeys/*
+
+- name: Set up authorized_keys for individual users
+  authorized_key:
+    user={{ item }}
+    key="{{ lookup('file', item + '.pub')}}"
+  with_items:
+    - lvh
 
 - name: Empower sudo group without password auth
   copy:
