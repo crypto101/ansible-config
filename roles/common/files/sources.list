@@ -1,11 +1,11 @@
-deb http://mirror.rackspace.com/debian/ squeeze main
-deb-src http://mirror.rackspace.com/debian/ squeeze main
+deb http://mirror.rackspace.com/debian/ squeeze main contrib non-free
+deb-src http://mirror.rackspace.com/debian/ squeeze main contrib non-free
 
-deb http://mirror.rackspace.com/debian-security/ squeeze/updates main
-deb-src http://mirror.rackspace.com/debian-security/ squeeze/updates main
+deb http://mirror.rackspace.com/debian-security/ squeeze/updates main contrib non-free
+deb-src http://mirror.rackspace.com/debian-security/ squeeze/updates main contrib non-free
 
-deb http://mirror.us.leaseweb.net/debian/ jessie main
-deb-src http://mirror.us.leaseweb.net/debian/ jessie main
+deb http://mirror.us.leaseweb.net/debian/ jessie main contrib non-free
+deb-src http://mirror.us.leaseweb.net/debian/ jessie main contrib non-free
 
-deb http://mirror.rackspace.com/debian-security/ jessie/updates main
-deb-src http://mirror.rackspace.com/debian-security/ jessie/updates main
+deb http://mirror.rackspace.com/debian-security/ jessie/updates main contrib non-free
+deb-src http://mirror.rackspace.com/debian-security/ jessie/updates main contrib non-free
