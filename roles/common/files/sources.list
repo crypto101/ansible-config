@@ -1,8 +1,8 @@
-deb http://mirror.rackspace.com/debian/ squeeze main
-deb-src http://mirror.rackspace.com/debian/ squeeze main
+deb http://mirror.rackspace.com/debian/ wheezy main
+deb-src http://mirror.rackspace.com/debian/ wheezy main
 
-deb http://mirror.rackspace.com/debian-security/ squeeze/updates main
-deb-src http://mirror.rackspace.com/debian-security/ squeeze/updates main
+deb http://mirror.rackspace.com/debian-security/ wheezy/updates main
+deb-src http://mirror.rackspace.com/debian-security/ wheezy/updates main
 
 deb http://mirror.rackspace.com/debian/ jessie main
 deb-src http://mirror.rackspace.com/debian/ jessie main
