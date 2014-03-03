@@ -1,11 +1,11 @@
-deb http://mirror.rackspace.com/debian/ wheezy main
-deb-src http://mirror.rackspace.com/debian/ wheezy main
+deb http://mirrors.acm.jhu.edu/debian/ wheezy main
+deb-src http://mirrors.acm.jhu.edu/debian/ wheezy main
 
 deb http://mirror.rackspace.com/debian-security/ wheezy/updates main
 deb-src http://mirror.rackspace.com/debian-security/ wheezy/updates main
 
-deb http://mirror.rackspace.com/debian/ jessie main
-deb-src http://mirror.rackspace.com/debian/ jessie main
+deb http://mirrors.acm.jhu.edu/debian/ jessie main
+deb-src http://mirrors.acm.jhu.edu/debian/ jessie main
 
 deb http://mirror.rackspace.com/debian-security/ jessie/updates main
 deb-src http://mirror.rackspace.com/debian-security/ jessie/updates main
