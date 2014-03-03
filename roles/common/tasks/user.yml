@@ -33,7 +33,7 @@
 - name: Set up authorized_keys for individual users
   authorized_key:
     user={{ item }}
-    key="{{ lookup('file', item + '.pub')}}"
+    key="{{ lookup('file', 'pubkeys/' + item + '.pub')}}"
   with_items:
     - lvh
 
