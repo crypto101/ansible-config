@@ -1,7 +1,8 @@
 - name: Create users
   user:
     name={{ item }}
-    groups=sudo append=yes
+    groups=sudo,docker
+    append=yes
   with_items:
     - ansible
     - lvh
