@@ -1,0 +1,8 @@
+- name: Install git and build-essential
+  apt:
+    update_cache=yes
+    cache_valid_time=300
+    pkg={{ item }}
+  with_items:
+    - build-essential
+    - git
