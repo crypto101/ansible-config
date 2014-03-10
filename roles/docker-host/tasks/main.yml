@@ -3,3 +3,11 @@
     update_cache=yes
     cache_valid_time=300
     pkg=docker.io
+
+- name: Add admin users to the docker group
+  user:
+    name={{ item }}
+    groups=docker
+    append=yes
+  with_items:
+    - lvh
