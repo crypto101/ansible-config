@@ -1,8 +1,20 @@
+- name: Install amenities
+  apt:
+    update_cache=yes
+    cache_valid_time=300
+    name={{ item }}
+    state=installed
+  with_items:
+    - zsh
+    - tmux
+    - realpath
+
 - name: Create users
   user:
     name={{ item }}
     groups=sudo,docker
     append=yes
+    shell=zsh
   with_items:
     - ansible
     - lvh
