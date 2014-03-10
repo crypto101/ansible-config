@@ -12,7 +12,7 @@
 - name: Create users
   user:
     name={{ item }}
-    groups=sudo,docker
+    groups=sudo
     append=yes
     shell=zsh
   with_items:
