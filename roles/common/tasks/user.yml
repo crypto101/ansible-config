@@ -14,7 +14,7 @@
     name={{ item }}
     groups=sudo
     append=yes
-    shell=zsh
+    shell=/usr/bin/zsh
   with_items:
     - ansible
     - lvh
