@@ -1,5 +1,5 @@
 Package: *
-Pin: release a=squeeze
+Pin: release a=wheezy
 Pin-Priority: 700
 
 Package: *
